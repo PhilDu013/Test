@@ -18,15 +18,15 @@ router.get('/login', function(req, res, next) {
 
 router.get('/user-page', function(req, res, next) {
   res.render('user-page');
-})
+});
 
 router.post('/search-result', function(req, res, next) {
   res.render('search-result');
-})
+});
 
 router.get('/basket', function(req, res, next) {
   res.render('basket');
-})
+});
 
 router.get('/no-train', function(req, res, next) {
   res.render('no-train');
@@ -56,9 +56,9 @@ router.get('/save', async function(req, res, next) {
        
        await newUser.save();
 
-    }
+    };
 
-  }
+  };
   res.render('index', { title: 'Express' });
 });
 

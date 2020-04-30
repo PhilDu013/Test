@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var userModel = require('../models/user');
+var userModel = require('../models/users');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -11,7 +11,7 @@ router.post('/sign-up', async function(req, res, next) {
   //On recherche l'user dans la bdd
   var searchUser = await userModel.findOne({
     email: req.body.email
-  })
+  });
 
   //Si l'user n'est pas présent :
   if (!searchUser) {
@@ -41,7 +41,7 @@ router.post('/sign-in', async function(req, res, next) {
   var searchUser = await userModel.findOne(
     {email: req.body.email},
     {password: req.body.password} 
-  )
+  );
 
 if (searchUser != null) {
   req.session.user = {
@@ -60,6 +60,6 @@ if (searchUser != null) {
   //Permet de déco l'user. L'user est co uniquement car ses infos sont mises en session. Null permet d'annuler ça et de se déco
   req.session.user = null;
 res.redirect('/login');
-})
+});
 
 module.exports = router;

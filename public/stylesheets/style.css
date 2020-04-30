@@ -15,68 +15,12 @@ body {
   display: inline;
 }
 
-.bar-link {
+/* .bar-link {
   font-weight: 700;
   font-size: 18px;
   color: #C80000;
   margin-right: 20px;
-}
-
-#last-trip {
-  color: black;
-}
-
- #title-login {
-  color: white;
-  font-weight: 500;
-  text-align: center;
-}
-
-
-/* User Page */
-h4 {
-  margin-left: 330px;
-  padding-top: 50px;
-  color: white;
-  text-align: center;
-}
-
-h3 {
-  margin-left: 200px;
-  color: white;
-  padding-top: 50px;
-}
-
-#table-user {
-  width: 70%;
-  margin-left: 15%;
-  margin-right: 15%;
-} 
-
-#btn {
-  margin-left: 75%;
-  margin-top: 20px;
-}
-
-/* Footer */
-.footer {
-  font-style: italic;
-  color: lightgray;
-}
-
-
-h2{
-  color: rgba(255, 255, 255, 1);
-  font: 30px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-.message{
-  width: 600px;
-  height: 600px;
-  display: flex;
-  text-align: end;
-
-}
+} */
 
 .btn-nav-connection{
   color: #C80000;
@@ -120,9 +64,64 @@ h2{
   color: black;
 }
 
+#last-trip {
+  color: black;
+}
+
+ #title-login {
+  color: white;
+  font-weight: 500;
+  text-align: center;
+}
+
+
+/* Main Pages */
+h4 {
+  margin-left: 330px;
+  padding-top: 50px;
+  color: white;
+  text-align: center;
+}
+
+h3 {
+  margin-left: 200px;
+  color: white;
+  padding-top: 50px;
+}
+
+#table-user {
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+} 
+
+#btn {
+  margin-left: 75%;
+  margin-top: 20px;
+}
+
+h2{
+  color: rgba(255, 255, 255, 1);
+  font: 30px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.message{
+  width: 600px;
+  height: 600px;
+  display: flex;
+  text-align: end;
+
+}
 
 .alignCopyright {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+/* Footer */
+.footer {
+  font-style: italic;
+  color: lightgray;
+}
+
