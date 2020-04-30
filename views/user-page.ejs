@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <title>Ticketac</title>
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    </head>
+<body>
+
+    <%- include('header'); %>
+
+    <div class="container">
+        <div class="row">
+                <h4 class="lasth4">My last trips :</h4>
+            
+
+        <div class="col-12 col-sm-6">
+        <table class="table mt-5 table-borderless table-light" id="table-user">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Journey</th>
+            <th scope="col">Departure Time</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">02/08/2019</th>
+            <td>Paris / Lille</td>
+            <td>15:00 pm</td>
+            <td>93€</td>
+          </tr>
+          <tr>
+            <th scope="row">07/12/2019</th>
+            <td>Paris / Bordeaux</td>
+            <td>19:00 pm</td>
+            <td>125€</td>
+          </tr>
+        </tbody>
+      </table>
+
+        <a href="/index"><button type="button" class="btn btn-danger button">Home</button></a>
+
+    </div>
+    </div>
+    </div>
+
+
+    <%- include('footer'); %>
+    
+</body>
+</html>
