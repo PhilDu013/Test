@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Ticketac</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <%- include('header'); %>
+    
+        <div class="container justify-content-center mt-5">
+
+            <div class="row">
+
+                <!-- SIGN UP AREA -->
+                <div class="col-12 col-sm-6 text-center mt-5">
+
+                    <div class="formArea">
+
+                        <h4 class="titleForm">Sign In :</h4>
+
+                        <form action="/sign-in" cmethod="POST">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1"></label>
+                                <input type="text" class="form-control" name="email" value="" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1"></label>
+                                <input type="password" class="form-control" name="password" value="" placeholder="Password" required>
+                            </div>
+                            <button type="submit" class="btn btn-danger">Confirm</button>
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <!-- SIGN IN AREA -->
+                <div class="col-12 col-sm-6 text-center mt-5">
+
+                    <div class="formArea">
+                        <h4 class="titleForm">Sign Up :</h4>
+
+                        <form action="/sign-up" method="POST">
+                          
+                          <div class="form-group">
+                            <label for="exampleInputName"></label>
+                            <input type="text" class="form-control" name="name" value="" placeholder="Name" required>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="exampleInputFirstName"></label>
+                            <input type="text" class="form-control" name="password" value="" placeholder="First Name" required>
+                          </div>
+
+                          <div class="form-group">
+                              <label for="exampleInputEmail1"></label>
+                              <input type="email" class="form-control" name="email" value="" placeholder="Email" required>
+                          </div>
+
+                          <div class="form-group">
+                              <label for="exampleInputPassword1"></label>
+                              <input type="password" class="form-control" name="password" value="" placeholder="Password" required>
+                          </div>
+
+                            <button type="submit" class="btn btn-danger">Confirm</button>
+                        </form>
+
+                    </div>
+
+                </div>
+    
+            </div>
+
+            <%- include('footer'); %>
+</body>
+
+</html>
