@@ -3,7 +3,7 @@
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
-    <link rel='stylesheet' href='../stylesheets/style_M.css' />
+    <link rel='stylesheet' href='../stylesheets/style.css' />
   </head>
   <body class="background regular-progression" > 
    <!-- NavBar-->
@@ -11,17 +11,8 @@
 <div class="container-fluid">
 
 <!-- Container-->
-<div class="row">
-          <nav class="header col-12 navbar navbar-light bg-light">
-            <a class="navbar-brand" href="#">
-              <img src="../images/train.png" width="30" height="30" class="d-inline-block align-top" alt="">
-              TicketTac
-            </a>
-           <a href="/"><button type="button" class="btn btn-outline-danger">Connection</button></a> 
-          </nav>
-        </div>
-</div>  
 
+<%- include('navbar'); %>
 
 <div class="row">
   <div class="col-12 message alignCopyright">
@@ -57,7 +48,7 @@
             <td>93€</td>
           </tr>
   
-          <tr class="table bg-danger">
+          <tr class="table table-danger">
             <th>Total</th>
             <td></td>
             <td></td>
@@ -67,22 +58,34 @@
         </tbody>
       </table>
 
-      <div>
-        <a href="#" class=" homeBtn btn btn-danger btn-md active " role="button" aria-pressed="true">Confirm</a>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">
+  Confirm
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Récapitulatif de votre commande</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-
+      <div class="modal-body">
+        Bonjour Nom Prenom ! Souhaitez-vous confirmer votre voyage de Ville à Ville le 00/00/00 ?
+      </div>
+      <div class="modal-footer">
+        <a href="/basket"><button type="button" class="btn btn-secondary" data-dismiss="modal">Retour Panier</button></a>
+        <a href="/homepage"><button type="button" class="btn btn-danger">Confirmer</button></a>
+      </div>
     </div>
   </div>
 </div>
-
   
-<div class="row">
-  <div class="col-12 footer alignfooter">
-    <div><h6> @LaCapsule2020 </h6>
-    </div>
-  </div>
-</div>
 
+<%- include('footer'); %>
 <!-- Container-->
 </div>
 

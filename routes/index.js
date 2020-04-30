@@ -54,6 +54,9 @@ router.get('/last_trips', function(req, res, next) {
   res.render('last_trips');
 });
 
+router.get('/login', function(req, res, next) {
+  res.render('login');
+});
 
 // Remplissage de la base de donnée, une fois suffit
 router.get('/save', async function(req, res, next) {
