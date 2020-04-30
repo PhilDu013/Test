@@ -28,26 +28,24 @@ body {
   color: black;
 }
 
-.bar-link:hover {
-  transform: scale(1.2);
-  color : #C80000;
-}
-
-.bar-link:link {
-  text-decoration: none;
-}
-
-.titleForm {
-  color: white;
-  font-weight: 500;
+ .title-login {
+   display: flex;
   text-align: center;
 }
 
+
 /* User Page */
-.lasth4 {
+h4 {
   margin-left: 330px;
   padding-top: 50px;
   color: white;
+  text-align: center;
+}
+
+h3 {
+  margin-left: 200px;
+  color: white;
+  padding-top: 50px;
 }
 
 #table-user {
@@ -56,30 +54,22 @@ body {
   margin-right: 15%;
 } 
 
+#btn {
+  margin-left: 75%;
+  margin-top: 20px;
+}
+
 /* Footer */
 .footer {
   font-style: italic;
   color: lightgray;
 }
 
-/* Style Mariama -----------------------*/
-
-h6{
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: rgba(255, 255, 255, 0.5);
-}
 
 h2{
   color: rgba(255, 255, 255, 1);
   font: 30px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
-.alignCopyright{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 
 .message{
   width: 600px;
@@ -114,4 +104,17 @@ h2{
 
 .btn-nav-trips:hover {
   color: black;
+}
+
+.alignCopyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row-form{
+  display: flex;
+  border: 20px solid blue;
+  align-items: center;
+  justify-content: center;
 }
