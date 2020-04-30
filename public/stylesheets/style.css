@@ -81,7 +81,7 @@ h2{
 .btn-nav-connection{
   color: #C80000;
   margin-right:10px; 
-
+  font-weight: bold;
 }
 
 .btn-nav-connection:link {
@@ -94,7 +94,8 @@ h2{
 
 .btn-nav-trips{
   color: black;
-
+  margin-right: 10px;
+  font-weight: bold;
 }
 
 .btn-nav-trips:link {
@@ -104,6 +105,21 @@ h2{
 .btn-nav-trips:hover {
   color: black;
 }
+
+.btn-nav-deconnect {
+  color: black;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.btn-nav-deconnect:link {
+  text-decoration: none;
+}
+
+.btn-nav-deconnect:hover {
+  color: black;
+}
+
 
 .alignCopyright {
   display: flex;

@@ -1,40 +1,9 @@
 var express = require('express');
 var router = express.Router();
-
-const mongoose = require('mongoose');
-
-// useNewUrlParser ;)
-var options = {
-  connectTimeoutMS: 5000,
-  useNewUrlParser: true,
-  useUnifiedTopology: true
- };
-
-// --------------------- BDD -----------------------------------------------------
-mongoose.connect('mongodb+srv://admin:8gqYDwNLwHrDNTd1@cluster0-vod0k.mongodb.net/Ticketac?retryWrites=true',
-   options,
-   function(err) {
-    if (err) {
-      console.log(`error, failed to connect to the database because --> ${err}`);
-    } else {
-      console.info('*** Database Ticketac connection : Success ***');
-    }
-   }
-);
-
-var journeySchema = mongoose.Schema({
-  departure: String,
-  arrival: String,
-  date: Date,
-  departureTime: String,
-  price: Number,
-});
-
-var journeyModel = mongoose.model('journey', journeySchema);
+var journeyModel = require('../models/journey');
 
 var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
 var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
-
 
 
 /* GET home page. */
@@ -42,25 +11,27 @@ router.get('/homepage', function(req, res, next) {
   res.render('homepage');
 });
 
+//Route login
 router.get('/login', function(req, res, next) {
   res.render('login');
 });
 
 router.get('/user-page', function(req, res, next) {
-  res.render('user-page')
+  res.render('user-page');
 })
 
 router.post('/search-result', function(req, res, next) {
-  res.render('search-result')
+  res.render('search-result');
 })
 
 router.get('/basket', function(req, res, next) {
-  res.render('basket')
+  res.render('basket');
 })
 
 router.get('/no-train', function(req, res, next) {
-  res.render('no-train')
-})
+  res.render('no-train');
+});
+
 // Remplissage de la base de donnée, une fois suffit
 router.get('/save', async function(req, res, next) {
 
