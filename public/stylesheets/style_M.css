@@ -1,0 +1,55 @@
+.regular-progression { 
+    background: linear-gradient(to top, rgba(0, 191, 255, 1), rgba(255, 255, 255, 1));
+  }
+  
+.background{
+    width: 100vw;
+    height: 100vh;
+  }
+
+.container-fluid{
+    padding: 0px;
+}  
+
+h6{
+    font-family: 'Manrope', sans-serif;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+h2{
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Manrope', sans-serif;
+
+}
+
+.alignCopyright{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.message{
+    width: 600px;
+    height: 600px;
+    display: flex;
+    text-align: end;
+
+}
+
+
+.footer{
+    width: 600px;
+    display: flex;
+    text-align: end;
+    margin-top: 40px;
+
+}
+
+.alignfooter{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+}
+
