@@ -26,26 +26,25 @@ body {
   color: black;
 }
 
-.bar-link:hover {
-  transform: scale(1.2);
-  color : #C80000;
-}
-
-.bar-link:link {
-  text-decoration: none;
-}
-
-.titleForm {
+ #title-login {
   color: white;
   font-weight: 500;
   text-align: center;
 }
 
+
 /* User Page */
-.lasth4 {
+h4 {
   margin-left: 330px;
   padding-top: 50px;
   color: white;
+  text-align: center;
+}
+
+h3 {
+  margin-left: 200px;
+  color: white;
+  padding-top: 50px;
 }
 
 #table-user {
@@ -54,8 +53,9 @@ body {
   margin-right: 15%;
 } 
 
-.btn {
-  margin-left: 78%;
+#btn {
+  margin-left: 75%;
+  margin-top: 20px;
 }
 
 /* Footer */
@@ -64,3 +64,49 @@ body {
   color: lightgray;
 }
 
+
+h2{
+  color: rgba(255, 255, 255, 1);
+  font: 30px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.message{
+  width: 600px;
+  height: 600px;
+  display: flex;
+  text-align: end;
+
+}
+
+.btn-nav-connection{
+  color: #C80000;
+  margin-right:10px; 
+
+}
+
+.btn-nav-connection:link {
+  text-decoration: none;
+}
+
+.btn-nav-connection:hover {
+  color: #C80000;
+}
+
+.btn-nav-trips{
+  color: black;
+
+}
+
+.btn-nav-trips:link {
+  text-decoration: none;
+}
+
+.btn-nav-trips:hover {
+  color: black;
+}
+
+.alignCopyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='../stylesheets/style.css' />
+  </head>
+  <body class="background regular-progression" > 
+   <!-- NavBar-->
+<!-- Container-->
+<div class="container-fluid">
+
+<!-- Container-->
+
+<%- include('navbar'); %>
+
+<div class="row">
+  <div class="col-12 message alignCopyright">
+    <div>
+      <div>
+        <h2 class="text-left">My tickets: </h2>
+      </div>
+
+      <table class="table bg-white">
+        <thead>
+          <tr>
+            <th scope="col">N°</th>
+            <th scope="col">Journey</th>
+            <th scope="col">Date</th>
+            <th scope="col">Departure Time</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row bg-white">1</th>
+            <td>Paris / Lille</td>
+            <td>02/08/2019</td>
+            <td>15:00 pm</td>
+            <td>93€</td>
+          </tr>
+  
+          <tr>
+            <th scope="row bg-white">1</th>
+            <td>Paris / Lille</td>
+            <td>02/08/2019</td>
+            <td>15:00 pm</td>
+            <td>93€</td>
+          </tr>
+  
+          <tr class="table table-danger">
+            <th>Total</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>93€</td>
+          </tr>
+        </tbody>
+      </table>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">
+  Confirm
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Récapitulatif de votre commande</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Bonjour Nom Prenom ! Souhaitez-vous confirmer votre voyage de Ville à Ville le 00/00/00 ?
+      </div>
+      <div class="modal-footer">
+        <a href="/basket"><button type="button" class="btn btn-secondary" data-dismiss="modal">Retour Panier</button></a>
+        <a href="/homepage"><button type="button" class="btn btn-danger">Confirmer</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+<%- include('footer'); %>
+<!-- Container-->
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
+  </body>
+</html>
