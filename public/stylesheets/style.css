@@ -17,67 +17,12 @@ body {
   display: inline;
 }
 
-.bar-link {
+/* .bar-link {
   font-weight: 700;
   font-size: 18px;
   color: #C80000;
   margin-right: 20px;
-}
-
-#last-trip {
-  color: black;
-}
-
- .title-login {
-   display: flex;
-  text-align: center;
-}
-
-
-/* User Page */
-h4 {
-  margin-left: 330px;
-  padding-top: 50px;
-  color: white;
-  text-align: center;
-}
-
-h3 {
-  margin-left: 200px;
-  color: white;
-  padding-top: 50px;
-}
-
-#table-user {
-  width: 70%;
-  margin-left: 15%;
-  margin-right: 15%;
-} 
-
-#btn {
-  margin-left: 75%;
-  margin-top: 20px;
-}
-
-/* Footer */
-.footer {
-  font-style: italic;
-  color: lightgray;
-}
-
-
-h2{
-  color: rgba(255, 255, 255, 1);
-  font: 30px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-.message{
-  width: 600px;
-  height: 600px;
-  display: flex;
-  text-align: end;
-
-}
+} */
 
 .btn-nav-connection{
   color: #C80000;
@@ -91,6 +36,19 @@ h2{
 
 .btn-nav-connection:hover {
   color: #C80000;
+}
+
+.delete-picto {
+  color: #C80000;
+  cursor: pointer;
+}
+
+.delete-picto:hover {
+  transform: scale(1.5);
+}
+
+.delete-picto:active {
+  transform: scale(1.6);
 }
 
 .btn-nav-trips{
@@ -121,6 +79,53 @@ h2{
   color: black;
 }
 
+#last-trip {
+  color: black;
+}
+
+ .title-login {
+   display: flex;
+  text-align: center;
+}
+
+
+/* Main Pages */
+h4 {
+  margin-left: 330px;
+  padding-top: 50px;
+  color: white;
+  text-align: center;
+}
+
+h3 {
+  margin-left: 200px;
+  color: white;
+  padding-top: 50px;
+}
+
+#table-user {
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+} 
+
+#btn {
+  margin-left: 75%;
+  margin-top: 20px;
+}
+
+h2{
+  color: rgba(255, 255, 255, 1);
+  font: 30px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.message{
+  width: 600px;
+  height: 600px;
+  display: flex;
+  text-align: end;
+
+}
 
 .alignCopyright {
   display: flex;
@@ -128,9 +133,9 @@ h2{
   align-items: center;
 }
 
-.row-form{
-  display: flex;
-  border: 20px solid blue;
-  align-items: center;
-  justify-content: center;
+/* Footer */
+.footer {
+  font-style: italic;
+  color: lightgray;
 }
+
