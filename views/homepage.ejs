@@ -18,7 +18,7 @@
 
         <div class="row">
             <div class="col-12">
-                <form action="/search-result" method="POST">
+                <form action="/search" method="POST">
                     <div class="form-row">
 
                         <div class="offset-2 col-3">
@@ -26,15 +26,21 @@
                         </div>
 
                         <div class="col-3">
-                          <input type="text" class="form-control" name="departure" placeholder="To: Lille, Nantes..." />
+                          <input type="text" class="form-control" name="arrival" placeholder="To: Lille, Nantes..." />
                         </div>
 
                         <div class="col-3">
                             <input type="date" class="form-control" name="date" />
                             <button type="submit" class="btn btn-danger" id="btn">Go</button>
                         </div>
+    
                     </div>             
                 </form>
+
+                <div class="d-flex justify-content-center mt-5 ">
+                    <img id="background-img" src="./images/landmark.png">
+                </div>
+
             </div>
         </div>
     <%- include('footer'); %>

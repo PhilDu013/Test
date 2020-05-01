@@ -2,15 +2,11 @@ var express = require('express');
 var router = express.Router();
 var userModel = require('../models/users');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('/login');
-});
-
 router.post('/sign-up', async function(req, res, next) {
   //On recherche l'user dans la bdd
   var searchUser = await userModel.findOne({
-    email: req.body.email
+    email: req.body.email,
+    password: req.body.password
   });
 
   //Si l'user n'est pas présent :
@@ -26,8 +22,7 @@ router.post('/sign-up', async function(req, res, next) {
     var newUserSave = await newUser.save();
   ////Si l'user existe, on enregistre en session les infos relatives à l'user et on redirige sur la page /homepage, sinon on reste sur la page login
     req.session.user = {
-      first_name: newUserSave.first_name, 
-      last_name: newUserSave.last_name,
+      email: newUserSave.email,
       id: newUserSave._id
   };  
     res.redirect('/homepage'); //On redirige vers la page /weather
@@ -45,8 +40,7 @@ router.post('/sign-in', async function(req, res, next) {
 
 if (searchUser != null) {
   req.session.user = {
-    first_name: searchUser.first_name, 
-    last_name: searchUser.last_name,
+    email: searchUser.email,
     id: searchUser._id
   };
   res.redirect('/homepage');

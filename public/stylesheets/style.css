@@ -36,6 +36,19 @@ body {
   color: #C80000;
 }
 
+.delete-picto {
+  color: #C80000;
+  cursor: pointer;
+}
+
+.delete-picto:hover {
+  transform: scale(1.5);
+}
+
+.delete-picto:active {
+  transform: scale(1.6);
+}
+
 .btn-nav-trips{
   color: black;
   margin-right: 10px;
