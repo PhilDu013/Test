@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var journeyModel = require('../models/journey');
+var userModel = require('../models/journey');
 
 /* var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
 var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"] */
@@ -61,7 +62,7 @@ router.get('/basket', async function(req, res, next) {
   }
 
   //on récupère l'id du trajet choisi et on push dans basket
-  var addTicket = await journeyModel.findById(req.query.id);
+  var addTicket = await userModel.findById(req.query.id);
   req.session.basket.push(addTicket);
   /* console.log(req.session.basket) */
 
@@ -75,25 +76,26 @@ router.get('/basket', async function(req, res, next) {
   res.render('basket', {basket: req.session.basket, total});
 });
 
-router.get('/delete', async function(req, res, next) {
+router.get('/delete', function(req, res, next) {
+  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!! FONCTIONNE PAS
+  req.session.basket.splice(req.query.position,1)
 
-  req.session.basket.splice(req.query.index, 1);
-  console.log(req.session.basket)
+  res.redirect('/basket');
+}); 
 
-res.render('basket', {basket: req.session.basket});
-});
-/* router.get('/confirm', function(req, res, next) {
-  res.render()
-}); */
-
-router.get('/user-page', function(req, res, next) {
+router.get('/user-page', async function(req, res, next) {
 
   if (!req.session.user) {
     res.redirect('/login')
   } else { 
 
-  }
-  res.render('user-page');
+  var userData = await journeyModel.findOne({_id: req.session.user.id})
+                                 .populate("order")
+                                 .exec();                                   
+  };
+  console.log(userData)
+
+  res.render('user-page', {userData});
 });
 
 
