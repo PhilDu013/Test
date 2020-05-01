@@ -9,6 +9,6 @@ var journeySchema = mongoose.Schema({
     quantity: Number
   });
   
-  var journeyModel = mongoose.model('journey', journeySchema);
+  var JourneyModel = mongoose.model('journey', journeySchema);
 
-  module.exports = journeyModel;
+  module.exports = JourneyModel;
