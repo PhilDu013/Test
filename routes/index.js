@@ -3,8 +3,8 @@ var router = express.Router();
 var journeyModel = require('../models/journey');
 var userModel = require('../models/users');
 
-/* var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
-var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"] */
+var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
+var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"] 
 
 /* GET home page. */
 router.get('/homepage', function(req, res, next) {
@@ -59,26 +59,39 @@ router.get('/basket', async function(req, res, next) {
   //Si basket est undefined, on initalise un array vide
   if (req.session.basket == undefined) {
     req.session.basket = [];
-  }
-
+  };
+  
   //on récupère l'id du trajet choisi et on push dans basket
   var addTicket = await journeyModel.findById(req.query.id);
   req.session.basket.push(addTicket);
-  console.log(req.session.basket) 
-
-  /* // Total du panier 
-  var total = 0;
-  for (var i = 0; i < req.session.basket.length; i++) {
-    total = total + req.session.basket[i].price;
-  }
-  }; */
+  /* console.log('BASKET =========== ', req.session.basket)  */
     
   res.render('basket', {basket: req.session.basket});
 }
 });
 
+router.get('/confirm', async function(req, res, next) {
+
+  var user = await userModel.findById(req.session.user._id);
+  var userTrip = user.trip;
+  
+  console.log('SESSION BASKET =========================', req.session.basket); 
+  //boucle sur la longueur de basket - push basket dans userTrip ?
+  //update usermodel avec id ?
+  for(var i=0; i<req.session.basket.length; i++){
+    userTrip.push(req.session.basket[i]);
+  };
+
+  /* await userModel.save()
+  console.log('USERTRIP ===============================', userTrip) */
+  await userModel.updateOne({_id :req.session.user._id}, {trip: userTrip});
+  console.log('USERTRIP ===============================', userTrip);
+  
+  res.render('homepage');
+}); 
+
 router.get('/delete', function(req, res, next) {
-  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!! FONCTIONNE PAS
+
   req.session.basket.splice(req.query.id,1)
 
   res.render('basket', {basket: req.session.basket});
@@ -88,18 +101,19 @@ router.get('/user-page', async function(req, res, next) {
 
   if (req.session.user !== undefined) {
     var user = await userModel.findById(req.session.user._id)
-                              .populate('order')
+                              .populate('trip')
                               .exec();
 
-    console.log(user.order)
-    res.render('user-page', {userData: user.order});
+                              console.log(user)
+
+    res.render('user-page', {trip:user.trip});
   } else {
-    res.redirect('/homepage')
+    res.redirect('/')
   }
 })
 
-// Remplissage de la base de donnée, une fois suffit
-/* router.get('/save', async function(req, res, next) {
+ // Remplissage de la base de donnée, une fois suffit
+ router.get('/save', async function(req, res, next) {
 
   // How many journeys we want
   var count = 300
@@ -126,12 +140,12 @@ router.get('/user-page', async function(req, res, next) {
 
   };
   res.render('index', { title: 'Express' });
-}); */
+}); 
 
 
 // Cette route est juste une verification du Save.
 // Vous pouvez choisir de la garder ou la supprimer.
-/* router.get('/result', function(req, res, next) {
+ router.get('/result', function(req, res, next) {
 
   // Permet de savoir combien de trajets il y a par ville en base
   for(i=0; i<city.length; i++){
@@ -149,6 +163,6 @@ router.get('/user-page', async function(req, res, next) {
 
 
   res.render('index', { title: 'Express' });
-}); */
+}); 
 
 module.exports = router;

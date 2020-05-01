@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var userModel = require('../models/users');
+var journeyModel = require('../models/journey')
 
 router.get('/', function(req, res, next) {
   res.send('login');
@@ -9,8 +10,7 @@ router.get('/', function(req, res, next) {
 router.post('/sign-up', async function(req, res, next) {
   //On recherche l'user dans la bdd
   var searchUser = await userModel.findOne({
-    email: req.body.email,
-    password: req.body.password
+    email: req.body.email
   });
 
   //Si l'user n'est pas présent :
@@ -23,12 +23,10 @@ router.post('/sign-up', async function(req, res, next) {
       password: req.body.password
   });
 
-    var newUserSave = await newUser.save();
+    await newUser.save();
   ////Si l'user existe, on enregistre en session les infos relatives à l'user et on redirige sur la page /homepage, sinon on reste sur la page login
-    req.session.user = {
-      email: newUserSave.email,
-      id: newUserSave._id
-  };  
+    req.session.user = newUser;
+
     res.redirect('/homepage'); //On redirige vers la page /weather
 } else {
   res.render('login'); //Si l'user est déjà présent dans la bdd, on reste sur la page login
@@ -37,16 +35,14 @@ router.post('/sign-up', async function(req, res, next) {
 
 router.post('/sign-in', async function(req, res, next) {
 
-  var searchUser = await userModel.findOne(
+  var user = await userModel.findOne(
     {email: req.body.email},
     {password: req.body.password} 
   );
 
-if (searchUser != null) {
-  req.session.user = {
-    email: searchUser.email,
-    id: searchUser._id
-  };
+if (user != null) {
+  req.session.user = user;
+
   res.redirect('/homepage');
 } else {
   res.render('login');

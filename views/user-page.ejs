@@ -27,18 +27,21 @@
         
         
         <tbody>
-        <%
-        for (var i = 0; i < userData.length; i++) { 
-        %> 
+        
+          <%
+          for (var i = 0; i < trip.length; i++) { 
+          %> 
           <tr>
-            <th scope="row"><%= dateFormat(userData[i].date) %></th>
-            <td><%= userData[i].departure %> / <%= userData[i].arrival %></td>
-            <td><%= userData[i].departureTime %></td>
-            <td><%= userData[i].price %>€</td>
+            <th scope="row"><%= dateFormat(trip[i].date) %></th>
+            <td><%= trip[i].departure %> / <%= trip[i].arrival %></td>
+            <td><%= trip[i].departureTime %></td>
+            <td><%= trip[i].price %>€</td>
+            
           </tr>
-        <%
-        }
-        %>
+          <%
+          }
+          %>
+        
         </tbody>
     
       </table>
