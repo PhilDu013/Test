@@ -13,7 +13,7 @@ var userSchema = mongoose.Schema({
     last_name: String,
     email: String,
     password: String,
-    tickets: [{type: mongoose.Schema.Types.ObjectId, ref: 'journey'}]
+    order: [{type: mongoose.Schema.Types.ObjectId, ref: 'journey'}],
   });
   
   var userModel = mongoose.model('users', userSchema);
