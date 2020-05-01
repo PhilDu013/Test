@@ -24,20 +24,23 @@
             <th scope="col">Price</th>
           </tr>
         </thead>
+        
+        
         <tbody>
-          <%
-          for (var i = 0; i < userData.length; i++) { 
-          %> 
+        <%
+        for (var i = 0; i < userData.length; i++) { 
+        %> 
           <tr>
             <th scope="row"><%= dateFormat(userData[i].date) %></th>
             <td><%= userData[i].departure %> / <%= userData[i].arrival %></td>
             <td><%= userData[i].departureTime %></td>
             <td><%= userData[i].price %>€</td>
           </tr>
-          <%
-          }
-          %>
+        <%
+        }
+        %>
         </tbody>
+    
       </table>
 
         <a href="/homepage"><button type="button" class="btn btn-danger button" id="btn">Home</button></a>

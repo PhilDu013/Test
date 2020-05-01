@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var journeyModel = require('../models/journey');
-var userModel = require('../models/journey');
+var userModel = require('../models/users');
 
 /* var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
 var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"] */
@@ -16,7 +16,7 @@ router.get('/homepage', function(req, res, next) {
 });
 
 //Route login
-router.get('/login', function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.render('login');
 });
 
@@ -24,7 +24,7 @@ router.get('/login', function(req, res, next) {
 router.post('/search', async function(req, res, next) {
    //Contrôle pour vérifier que l'user est bien co
    if (!req.session.user) {
-    res.redirect('/login')
+    res.redirect('/')
   } else { 
 
   /* console.log(req.body.date);
@@ -62,42 +62,41 @@ router.get('/basket', async function(req, res, next) {
   }
 
   //on récupère l'id du trajet choisi et on push dans basket
-  var addTicket = await userModel.findById(req.query.id);
+  var addTicket = await journeyModel.findById(req.query.id);
   req.session.basket.push(addTicket);
-  /* console.log(req.session.basket) */
+  console.log(req.session.basket) 
 
-  // Total du panier 
+  /* // Total du panier 
   var total = 0;
   for (var i = 0; i < req.session.basket.length; i++) {
     total = total + req.session.basket[i].price;
   }
-  };
+  }; */
     
-  res.render('basket', {basket: req.session.basket, total});
+  res.render('basket', {basket: req.session.basket});
+}
 });
 
 router.get('/delete', function(req, res, next) {
   // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!! FONCTIONNE PAS
-  req.session.basket.splice(req.query.position,1)
+  req.session.basket.splice(req.query.id,1)
 
-  res.redirect('/basket');
+  res.render('basket', {basket: req.session.basket});
 }); 
 
 router.get('/user-page', async function(req, res, next) {
 
-  if (!req.session.user) {
-    res.redirect('/login')
-  } else { 
+  if (req.session.user !== undefined) {
+    var user = await userModel.findById(req.session.user._id)
+                              .populate('order')
+                              .exec();
 
-  var userData = await journeyModel.findOne({_id: req.session.user.id})
-                                 .populate("order")
-                                 .exec();                                   
-  };
-  console.log(userData)
-
-  res.render('user-page', {userData});
-});
-
+    console.log(user.order)
+    res.render('user-page', {userData: user.order});
+  } else {
+    res.redirect('/homepage')
+  }
+})
 
 // Remplissage de la base de donnée, une fois suffit
 /* router.get('/save', async function(req, res, next) {
