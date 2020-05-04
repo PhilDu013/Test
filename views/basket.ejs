@@ -38,7 +38,7 @@
           for (var i = 0; i < basket.length; i++) {
           %> 
           <tr>
-            <th scope="row bg-white">1</th>
+            <th scope="row bg-white"><%= i + 1%></th>
             <td><%= basket[i].departure %> / <%= basket[i].arrival %></td>
             <td><%= dateFormat(basket[i].date) %></td>
             <td><%= basket[i].departureTime %></td>
@@ -60,6 +60,7 @@
           </tr>
         </tbody>
       </table>
+
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">
